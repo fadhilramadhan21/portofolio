@@ -1817,6 +1817,21 @@
     // 1. Initialize Lucide Icons
     lucide.createIcons();
 
+    // Universal Image Path Fallback (Auto-resolves whether images are in 'assets/' or root directory)
+    function setupImageFallbacks() {
+      document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+          if (this.src && this.src.includes('/assets/')) {
+            this.src = this.src.replace('/assets/', '/');
+          } else if (this.src && this.src.includes('assets/')) {
+            this.src = this.src.replace('assets/', '');
+          }
+        };
+      });
+    }
+    setupImageFallbacks();
+
+
     // 2. Cinematic Intro Splash Screen Logic
     const splashScreen = document.getElementById('splashScreen');
     const splashProgress = document.getElementById('splashProgress');
@@ -2039,6 +2054,21 @@
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         if (window.lucide) lucide.createIcons();
+
+    // Universal Image Path Fallback (Auto-resolves whether images are in 'assets/' or root directory)
+    function setupImageFallbacks() {
+      document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+          if (this.src && this.src.includes('/assets/')) {
+            this.src = this.src.replace('/assets/', '/');
+          } else if (this.src && this.src.includes('assets/')) {
+            this.src = this.src.replace('assets/', '');
+          }
+        };
+      });
+    }
+    setupImageFallbacks();
+
       }
     }
 
@@ -2056,6 +2086,13 @@
         if (modalImageContainer) modalImageContainer.classList.remove('hidden');
         
         if (imageSrc && imageSrc.trim() !== '') {
+          modalImg.onerror = function() {
+            if (this.src.includes('/assets/')) {
+              this.src = this.src.replace('/assets/', '/');
+            } else if (this.src.includes('assets/')) {
+              this.src = this.src.replace('assets/', '');
+            }
+          };
           modalImg.src = imageSrc;
           modalImg.classList.remove('hidden');
           if (modalFallback) modalFallback.classList.add('hidden');
