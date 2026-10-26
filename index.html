@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmad Fadhil Ramadhan, S.Kom. | Portfolio</title>
+  <title>Ahmad Fadhil Ramadhan, S.Kom. | Portofolio</title>
   <meta name="description" content="Official Portfolio of Ahmad Fadhil Ramadhan, S.Kom. - Information Systems Graduate from UIN Imam Bonjol Padang. Experienced in web applications using HTML, CSS, JavaScript, PHP, and MySQL." />
   
   <!-- Google Fonts -->
@@ -150,8 +150,9 @@
       display: inline-block;
       width: 2.5px;
       margin-left: 4px;
-      background-color: #2563eb;
-      animation: blink 0.8s infinite;
+      background-color: #22d3ee;
+      box-shadow: 0 0 8px #22d3ee;
+      animation: blink 0.7s infinite;
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -226,7 +227,7 @@
       <!-- Animated Splash Typography -->
       <div class="space-y-2">
         <span class="text-xs sm:text-sm font-bold tracking-[0.3em] uppercase text-cyan-400 block animate-bounce">
-          PORTFOLIO
+          PORTOFOLIO
         </span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Ahmad Fadhil Ramadhan, S.Kom.
@@ -334,7 +335,7 @@
             <!-- Dynamic Animated Subtitle -->
             <div class="h-8 flex items-center justify-center lg:justify-start text-base sm:text-lg font-semibold text-slate-300 font-mono">
               <span class="text-cyan-400 font-bold">&gt;&nbsp;</span>
-              <span id="typingRoleText" class="text-cyan-300 font-bold"></span>
+              <span id="typingRoleText" class="text-cyan-300 font-bold">Web &amp; Software Engineering</span>
               <span class="typing-cursor text-cyan-400">&nbsp;</span>
             </div>
           </div>
@@ -2014,7 +2015,7 @@
       animate();
     }
 
-    // 6. Typewriter Subtitle Animation in Hero
+    // 6. Typewriter Subtitle Animation in Hero (Optimized for Mobile & Desktop)
     const roles = [
       "Web & Software Engineering",
       "Full-Stack Web Development",
@@ -2022,8 +2023,8 @@
       "Cisco Networking & Security"
     ];
     let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    let charIndex = roles[0].length;
+    let isDeleting = true; // start by holding then deleting to transition smoothly
     const typingElement = document.getElementById('typingRoleText');
 
     function typeEffect() {
@@ -2038,20 +2039,22 @@
         charIndex++;
       }
 
-      let speed = isDeleting ? 25 : 55;
+      let speed = isDeleting ? 30 : 60;
 
       if (!isDeleting && charIndex === currentRole.length) {
-        speed = 2200;
+        speed = 1500; // Hold for 1.5s then start deleting
         isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
+      } else if (isDeleting && charIndex <= 0) {
         isDeleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
-        speed = 400;
+        charIndex = 0;
+        speed = 350;
       }
 
       setTimeout(typeEffect, speed);
     }
-    typeEffect();
+    // Start typing effect smoothly after splash screen fades
+    setTimeout(typeEffect, 1200);
 
     // 7. Interactive Credentials Tab Filtering
     function filterCerts(category, btnElement) {
