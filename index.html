@@ -187,6 +187,19 @@
         -webkit-text-fill-color: #1e3a8a !important;
       }
     }
+  
+    /* Fail-safe Splash Screen Auto-Dismiss (Pure CSS Backup for Mobile) */
+    #splashScreen {
+      animation: autoDismissSplash 0.5s ease-in-out 2.2s forwards;
+    }
+    @keyframes autoDismissSplash {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
   </style>
 </head>
 <body class="selection:bg-blue-100 selection:text-blue-900 bg-[#f8fafc] text-slate-800 min-h-screen relative">
@@ -206,12 +219,7 @@
       <div class="relative group">
         <div class="absolute -inset-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 rounded-full blur-md opacity-80 animate-pulse"></div>
         <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl bg-slate-900">
-          <img 
-            src="foto-profil-fadhil.jpg" 
-            alt="Ahmad Fadhil Ramadhan" 
-            class="w-full h-full object-cover object-top scale-105"
-            onerror="if (!this.src.includes('assets/')) this.src='assets/foto-profil-fadhil.jpg';"
-          />
+          <img src="foto-profil-fadhil.jpg?v=3" alt="Ahmad Fadhil Ramadhan" class="w-full h-full object-cover object-top scale-105" onerror="if(!this.src.includes('assets/'))this.src='assets/foto-profil-fadhil.jpg';" />
         </div>
       </div>
 
@@ -475,25 +483,7 @@
             Selain kemampuan teknis pemrograman web, saya juga menguasai infrastruktur jaringan Cisco & Fortinet, dasar Artificial Intelligence (Huawei), serta telah berstatus resmi KOMPETEN dalam sertifikasi Digital Marketing berlisensi BNSP.
           </p>
 
-          <!-- Interactive JavaScript Animated Stats Row -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div class="p-3.5 rounded-2xl glass-card text-center border border-slate-200">
-              <span class="block text-2xl font-extrabold text-blue-600 font-mono count-up" data-target="3.56" data-decimals="2">0.00</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">IPK Kelulusan</span>
-            </div>
-            <div class="p-3.5 rounded-2xl glass-card text-center border border-slate-200">
-              <span class="block text-2xl font-extrabold text-indigo-600 font-mono count-up" data-target="3" data-decimals="0">0</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Proyek Sistem</span>
-            </div>
-            <div class="p-3.5 rounded-2xl glass-card text-center border border-slate-200">
-              <span class="block text-2xl font-extrabold text-emerald-600 font-mono count-up" data-target="14" data-decimals="0" data-suffix="+">0</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Kredensial Resmi</span>
-            </div>
-            <div class="p-3.5 rounded-2xl glass-card text-center border border-slate-200">
-              <span class="block text-2xl font-extrabold text-amber-600 font-mono count-up" data-target="100" data-decimals="0" data-suffix="%">0</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Komitmen Dedikasi</span>
-            </div>
-          </div>
+          
 
           <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex items-start gap-3 p-4 rounded-2xl glass-card">
@@ -1813,65 +1803,101 @@
 
 
   <!-- ==================== JAVASCRIPT: DYNAMIC & AESTHETIC ==================== -->
+    <!-- Main Unified JavaScript -->
   <script>
-    // 1. Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Universal Image Path Fallback (Auto-resolves whether images are in 'assets/' or root directory)
-    function setupImageFallbacks() {
-      document.querySelectorAll('img').forEach(img => {
-        img.onerror = function() {
-          if (!this.src.includes('assets/')) {
-            const filename = this.src.substring(this.src.lastIndexOf('/') + 1);
-            this.src = 'assets/' + filename;
-          }
-        };
-      });
+    // 1. Safe Lucide Icons Initializer
+    function safeInitIcons() {
+      if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        try { lucide.createIcons(); } catch (err) {}
+      }
     }
-    setupImageFallbacks();
+    safeInitIcons();
+    window.addEventListener('load', safeInitIcons);
 
-
-    // 2. Cinematic Intro Splash Screen Logic
-    const splashScreen = document.getElementById('splashScreen');
-    const splashProgress = document.getElementById('splashProgress');
-
+    // 2. Cinematic Intro Splash Screen Logic with Fail-Safe
     function dismissSplash() {
-      if (splashScreen) {
-        splashScreen.classList.add('fade-out');
+      const splash = document.getElementById('splashScreen');
+      if (splash) {
+        splash.classList.add('fade-out');
         setTimeout(() => {
-          splashScreen.style.display = 'none';
-        }, 800);
+          splash.style.display = 'none';
+        }, 500);
       }
     }
 
+    const splashProgress = document.getElementById('splashProgress');
     if (splashProgress) {
       setTimeout(() => {
         splashProgress.style.width = '100%';
-      }, 100);
+      }, 50);
+    }
 
-      setTimeout(() => {
-        dismissSplash();
-      }, 2000);
+    // Auto dismiss after 1.8s
+    setTimeout(dismissSplash, 1800);
 
-      if (splashScreen) {
-        splashScreen.addEventListener('click', dismissSplash);
-      }
+    const splashScreenEl = document.getElementById('splashScreen');
+    if (splashScreenEl) {
+      splashScreenEl.addEventListener('click', dismissSplash);
+      splashScreenEl.addEventListener('touchstart', dismissSplash, { passive: true });
     }
 
     // 3. Scroll Progress Bar Tracking
     window.addEventListener('scroll', () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
       const bar = document.getElementById('scrollProgressBar');
       if (bar) bar.style.width = scrolled + '%';
-    });
+
+      // Back-to-Top Button & Circular Progress Ring
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      const scrollCircle = document.getElementById('scrollProgressCircle');
+      const totalCircumference = 125.66; // 2 * PI * 20
+
+      if (backToTopBtn && scrollCircle) {
+        if (winScroll > 320) {
+          backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+          backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        }
+        const offset = totalCircumference - ((scrolled / 100) * totalCircumference);
+        scrollCircle.style.strokeDashoffset = offset;
+      }
+
+      // Active Scrollspy for Navbar
+      const sections = ['about', 'skills', 'projects', 'education', 'awards', 'github', 'contact'];
+      let currentSection = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            currentSection = id;
+          }
+        }
+      });
+
+      if (currentSection) {
+        document.querySelectorAll('nav a').forEach(link => {
+          if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('text-white', 'bg-slate-800');
+            link.classList.remove('text-slate-300');
+          } else {
+            link.classList.remove('text-white', 'bg-slate-800');
+            link.classList.add('text-slate-300');
+          }
+        });
+      }
+    }, { passive: true });
 
     // 4. Mobile Navigation Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         mobileMenu.classList.toggle('hidden');
       });
       mobileMenu.querySelectorAll('a').forEach(link => {
@@ -1881,18 +1907,30 @@
       });
     }
 
-    // 5. Dynamic Ambient Fluid Canvas (Interactive Physics Mesh)
+    // 5. Dynamic Ambient Fluid Canvas (Works on Desktop & Mobile Touch)
     const canvas = document.getElementById('ambientCanvas');
     if (canvas) {
       const ctx = canvas.getContext('2d');
       let width, height;
       let particles = [];
-      const particleCount = 45;
+      const particleCount = window.innerWidth < 768 ? 24 : 45;
       let mouse = { x: null, y: null, radius: 120 };
 
       window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          mouse.x = e.touches[0].clientX;
+          mouse.y = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        mouse.x = null;
+        mouse.y = null;
       });
 
       window.addEventListener('mouseout', () => {
@@ -1911,11 +1949,11 @@
         constructor() {
           this.x = Math.random() * width;
           this.y = Math.random() * height;
-          this.vx = (Math.random() - 0.5) * 0.45;
-          this.vy = (Math.random() - 0.5) * 0.45;
-          this.radius = Math.random() * 2 + 1.2;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.radius = Math.random() * 2 + 1;
           this.color = Math.random() > 0.5 ? 'rgba(37, 99, 235, ' : 'rgba(99, 102, 241, ';
-          this.alpha = Math.random() * 0.35 + 0.15;
+          this.alpha = Math.random() * 0.3 + 0.15;
         }
         update() {
           this.x += this.vx;
@@ -1955,11 +1993,11 @@
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 130) {
+            if (dist < 120) {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(59, 130, 246, ${0.12 * (1 - dist / 130)})`;
+              ctx.strokeStyle = `rgba(59, 130, 246, ${0.12 * (1 - dist / 120)})`;
               ctx.lineWidth = 0.8;
               ctx.stroke();
             }
@@ -1976,7 +2014,7 @@
       animate();
     }
 
-    // 6. Typewriter Subtitle Animation in Hero (AHP & SAW removed from intro)
+    // 6. Typewriter Subtitle Animation in Hero
     const roles = [
       "Web & Software Engineering",
       "Full-Stack Web Development",
@@ -2016,7 +2054,7 @@
     typeEffect();
 
     // 7. Interactive Credentials Tab Filtering
-    function filterCerts(category) {
+    function filterCerts(category, btnElement) {
       const items = document.querySelectorAll('.cert-item');
       const tabs = document.querySelectorAll('.cert-tab-btn');
 
@@ -2025,9 +2063,10 @@
         tab.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
       });
 
-      if (event && event.target) {
-        event.target.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
-        event.target.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+      const activeBtn = btnElement || (window.event ? window.event.target.closest('button') : null);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+        activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
       }
 
       items.forEach(item => {
@@ -2052,21 +2091,7 @@
         if (modalDocContainer) modalDocContainer.classList.remove('hidden');
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        if (window.lucide) lucide.createIcons();
-
-    // Universal Image Path Fallback (Auto-resolves whether images are in 'assets/' or root directory)
-    function setupImageFallbacks() {
-      document.querySelectorAll('img').forEach(img => {
-        img.onerror = function() {
-          if (!this.src.includes('assets/')) {
-            const filename = this.src.substring(this.src.lastIndexOf('/') + 1);
-            this.src = 'assets/' + filename;
-          }
-        };
-      });
-    }
-    setupImageFallbacks();
-
+        safeInitIcons();
       }
     }
 
@@ -2125,7 +2150,7 @@
         if (e.target === imageModal) closeModal();
       });
     }
-  
+
     // 9. Floating Toast Notification Controller
     let toastTimeout;
     function showToast(title, message) {
@@ -2191,96 +2216,7 @@
       });
     }
 
-    // 12. Floating Back-to-Top Button & Circular Progress Ring
-    const backToTopBtn = document.getElementById('backToTopBtn');
-    const scrollCircle = document.getElementById('scrollProgressCircle');
-    const totalCircumference = 125.66; // 2 * PI * 20
-
-    window.addEventListener('scroll', () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = height > 0 ? (winScroll / height) : 0;
-
-      // Update Top Linear Progress Bar
-      const bar = document.getElementById('scrollProgressBar');
-      if (bar) bar.style.width = (scrollPercent * 100) + '%';
-
-      // Update Floating Back-to-Top Button & Circle Ring
-      if (backToTopBtn && scrollCircle) {
-        if (winScroll > 320) {
-          backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-          backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
-        } else {
-          backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
-          backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-        }
-        const offset = totalCircumference - (scrollPercent * totalCircumference);
-        scrollCircle.style.strokeDashoffset = offset;
-      }
-
-      // 13. Active Scrollspy for Navbar
-      const sections = ['about', 'skills', 'projects', 'education', 'awards', 'github', 'contact'];
-      let currentSection = '';
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            currentSection = id;
-          }
-        }
-      });
-
-      if (currentSection) {
-        document.querySelectorAll('nav a').forEach(link => {
-          if (link.getAttribute('href') === '#' + currentSection) {
-            link.classList.add('text-white', 'bg-slate-800');
-            link.classList.remove('text-slate-300');
-          } else {
-            link.classList.remove('text-white', 'bg-slate-800');
-            link.classList.add('text-slate-300');
-          }
-        });
-      }
-    });
-
-    // 14. Animated Stats Counter Triggered via IntersectionObserver
-    let statsAnimated = false;
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !statsAnimated) {
-          statsAnimated = true;
-          document.querySelectorAll('.count-up').forEach(counter => {
-            const target = parseFloat(counter.getAttribute('data-target')) || 0;
-            const decimals = parseInt(counter.getAttribute('data-decimals')) || 0;
-            const suffix = counter.getAttribute('data-suffix') || '';
-            const duration = 1800;
-            const startTime = performance.now();
-
-            function updateCount(currentTime) {
-              const elapsed = currentTime - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              // Ease-out cubic
-              const easeProgress = 1 - Math.pow(1 - progress, 3);
-              const currentVal = (target * easeProgress).toFixed(decimals);
-              counter.textContent = currentVal + suffix;
-
-              if (progress < 1) {
-                requestAnimationFrame(updateCount);
-              } else {
-                counter.textContent = target.toFixed(decimals) + suffix;
-              }
-            }
-            requestAnimationFrame(updateCount);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) statsObserver.observe(aboutSection);
-
-    // 15. Dynamic Mouse Spotlight Effect on Cards
+    // 12. Dynamic Mouse Spotlight Effect on Cards
     document.querySelectorAll('.glass-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -2290,28 +2226,7 @@
         card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
-
   </script>
-  <!-- ==================== FLOATING JAVASCRIPT UI WIDGETS ==================== -->
-  <!-- 1. Floating Toast Notification (Copy Feedback & Alerts) -->
-  <div id="toastNotification" class="fixed top-6 right-6 z-[9999] pointer-events-none opacity-0 translate-y-[-20px] transition-all duration-300 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-slate-900/95 text-white border border-slate-700 shadow-2xl backdrop-blur-md">
-    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center flex-shrink-0">
-      <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-    </div>
-    <div>
-      <h5 id="toastTitle" class="text-xs font-bold text-white">Berhasil Disalin!</h5>
-      <p id="toastMessage" class="text-[11px] text-slate-300">Email berhasil disalin ke clipboard.</p>
-    </div>
-  </div>
-
-  <!-- 2. Floating Back-to-Top Button with Circular Scroll Progress Ring -->
-  <button id="backToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-slate-900/90 text-white border border-slate-700 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:scale-110 hover:bg-blue-600 hover:border-blue-500 group" title="Kembali ke Atas">
-    <svg class="w-12 h-12 absolute -inset-0 transform -rotate-90 pointer-events-none" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="20" stroke="rgba(255, 255, 255, 0.15)" stroke-width="3" fill="none" />
-      <circle id="scrollProgressCircle" cx="24" cy="24" r="20" stroke="#38bdf8" stroke-width="3" fill="none" stroke-dasharray="125.66" stroke-dashoffset="125.66" stroke-linecap="round" class="transition-all duration-100" />
-    </svg>
-    <i data-lucide="chevron-up" class="w-5 h-5 text-slate-300 group-hover:text-white transition-colors"></i>
-  </button>
 
 </body>
 </html>
