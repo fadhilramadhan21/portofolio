@@ -13,37 +13,7 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          animation: {
-            'float-slow': 'floatSlow 7s ease-in-out infinite',
-            'float-reverse': 'floatReverse 9s ease-in-out infinite',
-            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-          },
-          keyframes: {
-            floatSlow: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-8px)' },
-            },
-            floatReverse: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(8px)' },
-            },
-            pulseSoft: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.7', transform: 'scale(1.05)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+  
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -520,7 +490,7 @@
               <li class="flex items-start gap-3">
                 <i data-lucide="graduation-cap" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"></i>
                 <div>
-                  <span class="text-slate-900 font-semibold block">S1 Sistem Informasi</strong>
+                  <span class="text-slate-900 font-semibold block">S1 Sistem Informasi</span>
                   <span class="text-slate-600 text-xs">UIN Imam Bonjol Padang (IPK: 3,56 / 4,00)</span>
                 </div>
               </li>
@@ -528,7 +498,7 @@
               <li class="flex items-start gap-3">
                 <i data-lucide="code-2" class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5"></i>
                 <div>
-                  <span class="text-slate-900 font-semibold block">Tech Stack</strong>
+                  <span class="text-slate-900 font-semibold block">Tech Stack</span>
                   <span class="text-slate-600 text-xs">HTML, CSS, JavaScript, PHP Native, MySQL</span>
                 </div>
               </li>
@@ -536,7 +506,7 @@
               <li class="flex items-start gap-3">
                 <i data-lucide="server" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"></i>
                 <div>
-                  <span class="text-slate-900 font-semibold block">Hosting & Domain</strong>
+                  <span class="text-slate-900 font-semibold block">Hosting & Domain</span>
                   <span class="text-slate-600 text-xs">cPanel Hosting, DNS Management & Domain Deployment (magangpas.id)</span>
                 </div>
               </li>
@@ -544,7 +514,7 @@
               <li class="flex items-start gap-3">
                 <i data-lucide="award" class="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <div>
-                  <span class="text-slate-900 font-semibold block">Certifications</strong>
+                  <span class="text-slate-900 font-semibold block">Certifications</span>
                   <span class="text-slate-600 text-xs">BNSP Digital Marketing (Kompeten), Cisco (4 Modul), Huawei AI</span>
                 </div>
               </li>
@@ -877,6 +847,57 @@
                   </div>
                 </div>
 
+                                                <!-- 3 Real Field & Handover Documentation Photos -->
+                <div class="space-y-2 pt-3 border-t border-slate-200">
+                  <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                    <span class="flex items-center gap-1.5 text-blue-800">
+                      <i data-lucide="camera" class="w-4 h-4 text-blue-600"></i>
+                      Dokumentasi Lapangan &amp; Serah Terima Sistem
+                    </span>
+                    <span class="text-[11px] font-semibold text-slate-500">Kantor Gubernur Sumbar</span>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <!-- Foto 1: Serah Terima & Demo Laptop -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-blue-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('protokol-serah-terima-aplikasi.jpg', 'Presentasi &amp; Serah Terima Sistem Informasi Keprotokolan kepada Kepala Bagian Protokol Biro Adpim Setda Prov. Sumbar (Demo Langsung via Laptop &amp; Laporan Magang)')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="protokol-serah-terima-aplikasi.jpg" alt="Serah Terima Aplikasi Protokol kepada Kepala Bagian Protokol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-blue-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Demo &amp; Serah Terima Kabag Protokol</p>
+                      </div>
+                    </div>
+
+                    <!-- Foto 2: Tim di Depan Kantor Gubernur -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-blue-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('protokol-tim-gubernuran.jpg', 'Foto Tim Magang di Depan Kantor Gubernur Provinsi Sumatera Barat (Biro Administrasi Pimpinan Setda Prov. Sumbar)')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="protokol-tim-gubernuran.jpg" alt="Tim Magang Kantor Gubernur Sumbar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-blue-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Tim di Kantor Gubernur Sumbar</p>
+                      </div>
+                    </div>
+
+                    <!-- Foto 3: Dokumentasi Lengkap & Plakat -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-blue-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('protokol-dokumentasi-lengkap.jpg', 'Dokumentasi Lengkap: Penyerahan Plakat Penghargaan kepada Kepala Bagian Protokol, Demo Sistem di Laptop, &amp; Foto Bersama Staf Biro Adpim Setda Sumbar')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="protokol-dokumentasi-lengkap.jpg" alt="Dokumentasi Plakat &amp; Tim Adpim" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-blue-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Plakat &amp; Sesi Kabag Protokol</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Proof of Recognition (Piagam & Magang) -->
                 <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200">
                   <div class="border border-slate-200 rounded-lg p-2 bg-white cursor-pointer hover:border-blue-400 transition-colors text-center" onclick="openModal('sertifikat-magang-setda.jpg', 'Sertifikat Magang Resmi - Biro Adpim Setda Prov. Sumbar (06 Jan - 07 Mar 2025)')">
@@ -922,8 +943,8 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
-            <div class="lg:col-span-7 space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+            <div class="lg:col-span-6 space-y-6">
               
               <div class="space-y-3">
                 <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider flex items-center gap-2">
@@ -931,7 +952,7 @@
                   Tujuan Proyek
                 </h4>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                  Mengembangkan platform pendaftaran magang berbasis web terpadu guna memudahkan calon peserta magang mengakses alur pendaftaran secara daring, mengunggah kelengkapan dokumen, dan memantau tahapan verifikasi secara efisien.
+                  Mengembangkan platform pendaftaran magang online berbasis web terintegrasi dengan <em>Intelligent Internship Recommendation System</em> (IIRS - Litapdimas 2026). Memudahkan calon peserta magang mendaftar secara daring, mendeklarasikan kompetensi skill, mengunggah surat pengantar kampus, serta memperoleh rekomendasi penempatan unit kerja yang transparan, akuntabel, dan berbasis data di PT Pegadaian Syariah Cabang Padang.
                 </p>
               </div>
 
@@ -941,10 +962,11 @@
                   Kontribusi yang Dilakukan
                 </h4>
                 <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside">
-                  <li>Menjadi pengembang utama (lead developer) dalam tim proyek end-to-end.</li>
+                  <li>Menjadi pengembang utama (lead developer) dalam perancangan dan implementasi aplikasi end-to-end.</li>
                   <li>Mengembangkan aplikasi berbasis PHP dan basis data SQL (MySQL) dari tahap perancangan hingga deployment live.</li>
-                  <li>Mengelola basis data menggunakan SQL via phpMyAdmin.</li>
-                  <li>Mengonfigurasi hosting dan manajemen domain agar aplikasi dapat diakses publik melalui domain resmi magangpas.id.</li>
+                  <li>Mengimplementasikan alur rekomendasi 4 tahap: Registrasi Nilai Akademik, Deklarasi Skill & Upload Surat Pengantar Kampus, Matching Engine Matriks Kesesuaian 5 Unit Kerja, serta Penjelasan XAI.</li>
+                  <li>Menerapkan algoritma rekomendasi AHP dengan pengujian konsistensi matematis (CR = 0.0124 &lt; 0.10) serta visualisasi radar chart profil kompetensi vs standar unit.</li>
+                  <li>Mengelola basis data menggunakan SQL via phpMyAdmin, konfigurasi live server, manajemen domain resmi, dan live deployment di cPanel Hosting magangpas.id.</li>
                 </ul>
               </div>
 
@@ -955,7 +977,7 @@
                 </h4>
                 <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-700 space-y-3">
                   <p>
-                    ✓ Aplikasi sukses diluncurkan melalui domain resmi <a href="https://magangpas.id" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold underline hover:text-emerald-700">magangpas.id</a> dan dapat diakses secara online oleh calon pendaftar.
+                    ✓ Aplikasi sukses diluncurkan melalui domain resmi <a href="https://magangpas.id" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold underline hover:text-emerald-700">magangpas.id</a> dan aktif memfasilitasi pendaftaran magang daring dengan rekomendasi penempatan otomatis pada 5 unit kerja Pegadaian Syariah.
                   </p>
                   <div>
                     <a href="https://magangpas.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20">
@@ -974,41 +996,107 @@
               </div>
             </div>
 
-            <div class="lg:col-span-5 space-y-4">
+            <!-- Right Showcase: Real Screenshots from User Uploads -->
+            <div class="lg:col-span-6 space-y-4">
               <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-sm space-y-3">
                 <div class="flex items-center justify-between text-xs font-semibold text-slate-700 pb-2 border-b border-slate-200">
-                  <span>Portal magangpas.id</span>
-                  <a href="https://magangpas.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-emerald-600 hover:underline">
-                    <span>magangpas.id</span>
-                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  <span>Dokumentasi Nyata Sistem magangpas.id</span>
+                  <span class="text-emerald-600">Klik untuk perbesar</span>
+                </div>
+
+                <!-- Featured Screenshot: Beranda & Dashboard Rekomendasi Magang -->
+                <div class="group relative rounded-xl overflow-hidden border border-slate-200 bg-white cursor-pointer aspect-video shadow-sm" onclick="openModal('magangpas-home.png', 'Portal Beranda &amp; Dashboard Rekomendasi Magang Pegadaian Syariah (System IIRS Litapdimas 2026 - Uji Konsistensi AHP CR 0.0124)')">
+                  <img src="magangpas-home.png" alt="Portal Beranda magangpas.id" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1.5">
+                    <i data-lucide="zoom-in" class="w-5 h-5 text-emerald-300"></i> Perbesar Dashboard Rekomendasi
+                  </div>
+                </div>
+
+                <!-- 4 Real Screenshots Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+                  <!-- Screenshot 1: Beranda & Dashboard Utama -->
+                  <div class="border border-slate-200 rounded-lg overflow-hidden bg-white cursor-pointer hover:border-emerald-400 transition-colors group aspect-video relative" onclick="openModal('magangpas-home.png', 'Portal Beranda &amp; Dashboard Rekomendasi Magang Pegadaian Syariah (System IIRS Litapdimas 2026)')">
+                    <img src="magangpas-home.png" alt="Beranda magangpas.id" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white font-semibold">
+                      Dashboard
+                    </div>
+                  </div>
+
+                  <!-- Screenshot 2: Formulir Skill & Surat Pengantar -->
+                  <div class="border border-slate-200 rounded-lg overflow-hidden bg-white cursor-pointer hover:border-emerald-400 transition-colors group aspect-video relative" onclick="openModal('magangpas-form.png', 'Formulir Deklarasi Skill, Kompetensi &amp; Upload Surat Pengantar Kampus (Tahap 2)')">
+                    <img src="magangpas-form.png" alt="Formulir Skill &amp; Berkas" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white font-semibold">
+                      Formulir
+                    </div>
+                  </div>
+
+                  <!-- Screenshot 3: Matching Engine 5 Unit Kerja -->
+                  <div class="border border-slate-200 rounded-lg overflow-hidden bg-white cursor-pointer hover:border-emerald-400 transition-colors group aspect-video relative" onclick="openModal('magangpas-matching.png', 'Matching Engine: Matriks Persentase Kesesuaian 5 Unit Kerja Pegadaian Syariah (Tahap 3)')">
+                    <img src="magangpas-matching.png" alt="Matching Engine Unit Kerja" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white font-semibold">
+                      Matching
+                    </div>
+                  </div>
+
+                  <!-- Screenshot 4: Explainable AI & Radar Chart -->
+                  <div class="border border-slate-200 rounded-lg overflow-hidden bg-white cursor-pointer hover:border-emerald-400 transition-colors group aspect-video relative" onclick="openModal('magangpas-xai.png', 'Explainable AI (XAI): Radar Chart Profil Mahasiswa vs Standar Unit &amp; Justifikasi Rekomendasi (Tahap 4)')">
+                    <img src="magangpas-xai.png" alt="Explainable AI &amp; Radar Chart" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white font-semibold">
+                      XAI Radar
+                    </div>
+                  </div>
+                </div>
+
+                                                <!-- 2 Real Team Documentation Photos -->
+                <div class="space-y-2 pt-3 border-t border-slate-200">
+                  <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                    <span class="flex items-center gap-1.5 text-emerald-800">
+                      <i data-lucide="camera" class="w-4 h-4 text-emerald-600"></i>
+                      Dokumentasi Tim Pegadaian Syariah Padang
+                    </span>
+                    <span class="text-[11px] font-semibold text-slate-500">PT Pegadaian Syariah</span>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <!-- Foto 1 -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-emerald-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('magangpas-dokumentasi-1.jpg', 'Dokumentasi Proyek magangpas.id - Sesi Bersama Tim Pegadaian Syariah Padang bersama Tim &amp; Pimpinan PT Pegadaian Syariah Cabang Padang')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="magangpas-dokumentasi-1.jpg" alt="Dokumentasi Tim Pegadaian Syariah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-emerald-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Sesi Bersama Tim &amp; Pimpinan Pegadaian</p>
+                      </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-emerald-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('magangpas-dokumentasi-2.jpg', 'Dokumentasi Resmi Proyek magangpas.id - Foto Bersama Tim Pegadaian Syariah Cabang Padang')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="magangpas-dokumentasi-2.jpg" alt="Dokumentasi Resmi Pegadaian Syariah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-emerald-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Foto Resmi Bersama Tim Pegadaian</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Proof of Live & Verified Metrics -->
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200">
+                  <a href="https://magangpas.id" target="_blank" rel="noopener noreferrer" class="border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100/70 rounded-lg p-2 text-center transition-colors block">
+                    <i data-lucide="globe" class="w-4 h-4 mx-auto text-emerald-600 mb-1"></i>
+                    <span class="text-[11px] block font-semibold text-emerald-800 leading-tight">Akses magangpas.id</span>
                   </a>
-                </div>
-
-                <div class="group relative rounded-xl overflow-hidden border border-slate-200 bg-white cursor-pointer aspect-video" onclick="openModal('', 'Portal magangpas.id - Sistem Pendaftaran Magang Online Pegadaian Syariah Padang')">
-                  <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-tr from-emerald-50 to-teal-50">
-                    <i data-lucide="globe" class="w-12 h-12 text-emerald-600 mb-2"></i>
-                    <p class="text-xs font-bold text-slate-800">Preview Portal magangpas.id</p>
-                    <span class="text-[11px] text-slate-500 mt-1">Formulir Pendaftaran & Fitur Pendaftar</span>
-                  </div>
-                  <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
-                    <i data-lucide="zoom-in" class="w-4 h-4 text-emerald-300"></i> Enlarge Preview
+                  <div class="border border-slate-200 rounded-lg p-2 bg-white text-center cursor-pointer hover:border-emerald-400 transition-colors" onclick="openModal('magangpas-home.png', 'Uji Konsistensi AHP: Rasio Konsistensi (CR) = 0.0124 (Konsisten &lt; 0.10) pada Sistem Rekomendasi Magang Pegadaian Syariah')">
+                    <i data-lucide="cpu" class="w-4 h-4 mx-auto text-slate-600 mb-1"></i>
+                    <span class="text-[11px] block font-semibold text-slate-700 leading-tight">AHP CR: 0.0124 (&lt; 0.10)</span>
                   </div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-2">
-                  <div class="border border-slate-200 rounded-lg p-2 bg-white text-center cursor-pointer hover:border-emerald-400 transition-colors" onclick="openModal('', 'Halaman Utama Portal magangpas.id')">
-                    <i data-lucide="layout" class="w-4 h-4 mx-auto text-emerald-600 mb-1"></i>
-                    <span class="text-[10px] block font-semibold text-slate-700 leading-tight">Halaman Utama</span>
-                  </div>
-                  <div class="border border-slate-200 rounded-lg p-2 bg-white text-center cursor-pointer hover:border-emerald-400 transition-colors" onclick="openModal('', 'Formulir Pendaftaran Peserta Magang')">
-                    <i data-lucide="file-text" class="w-4 h-4 mx-auto text-emerald-600 mb-1"></i>
-                    <span class="text-[10px] block font-semibold text-slate-700 leading-tight">Formulir</span>
-                  </div>
-                  <div class="border border-slate-200 rounded-lg p-2 bg-white text-center cursor-pointer hover:border-emerald-400 transition-colors" onclick="openModal('', 'Dashboard Verifikasi Calon Peserta')">
-                    <i data-lucide="shield-check" class="w-4 h-4 mx-auto text-emerald-600 mb-1"></i>
-                    <span class="text-[10px] block font-semibold text-slate-700 leading-tight">Dashboard</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -1149,6 +1237,44 @@
                     <img src="spk-panti.png" alt="Pembagian Panti" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                     <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white font-semibold">
                       Panti Sosial
+                    </div>
+                  </div>
+                </div>
+
+                                <!-- 2 Real Field & Handover Documentation Photos -->
+                <div class="space-y-2 pt-3 border-t border-slate-200">
+                  <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                    <span class="flex items-center gap-1.5 text-violet-800">
+                      <i data-lucide="camera" class="w-4 h-4 text-violet-600"></i>
+                      Dokumentasi Diskusi, Demo &amp; Serah Terima
+                    </span>
+                    <span class="text-[11px] font-semibold text-slate-500">Dinas Sosial Prov. Sumbar</span>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <!-- Foto 1: Sesi Diskusi & Pengolahan Data -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-violet-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('spk-diskusi-sistem.jpg', 'Sesi Diskusi &amp; Pengujian Teknis Data Sistem Pendukung Keputusan (SPK) Bersama Tim Dinas Sosial Sumatera Barat')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="spk-diskusi-sistem.jpg" alt="Sesi Diskusi SPK Dinsos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-violet-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Diskusi Teknis &amp; Pengolahan Data SPK</p>
+                      </div>
+                    </div>
+
+                    <!-- Foto 2: Demo & Serah Terima kepada Kepala Dinas Sosial Sumbar -->
+                    <div class="group border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm hover:border-violet-400 hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="openModal('spk-serah-terima-kadinsos.jpg', 'Sesi Demo Aplikasi &amp; Serah Terima Sistem Pendukung Keputusan (SPK) kepada Kepala Dinas Sosial Provinsi Sumatera Barat')">
+                      <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="spk-serah-terima-kadinsos.jpg" alt="Demo &amp; Serah Terima kepada Kepala Dinas Sosial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1">
+                          <i data-lucide="zoom-in" class="w-4 h-4 text-violet-300"></i> Perbesar
+                        </div>
+                      </div>
+                      <div class="p-2 bg-slate-50 border-t border-slate-100 text-center flex-1 flex items-center justify-center">
+                        <p class="text-[11px] font-semibold text-slate-800 leading-snug">Demo &amp; Serah Terima Kepala Dinas Sosial</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1711,10 +1837,9 @@
   </section>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-400 bg-slate-900">
-    <div class="max-w-7xl mx-auto px-4 space-y-2">
-      <p class="font-semibold text-white">© 2026 Ahmad Fadhil Ramadhan, S.Kom. All rights reserved.</p>
-      <p class="text-slate-400">IT & Software Development Portfolio • HTML, CSS, JavaScript, PHP, & Tailwind CSS</p>
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-400 bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="font-semibold text-white">© 2026 Ahmad Fadhil Ramadhan, S.Kom.</p>
     </div>
   </footer>
 
@@ -1722,16 +1847,26 @@
   <!-- ==================== MODAL PREVIEW DOKUMEN / GAMBAR ==================== -->
   <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-all flex flex-col max-h-[92vh]">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50">
-        <h4 id="modalTitle" class="font-bold text-slate-900 text-sm sm:text-base truncate pr-4">Document Preview</h4>
-        <button onclick="closeModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors">
+                  <!-- Modal Header: Clean Single Title Bar with Close Button -->
+      <div class="flex items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3 border-b border-slate-200 bg-slate-50 flex-shrink-0">
+        <div class="flex items-center gap-2 text-slate-700 text-xs font-bold uppercase tracking-wider">
+          <i data-lucide="image" class="w-4 h-4 text-blue-600"></i>
+          <span id="modalTitle">Pratinjau Foto</span>
+        </div>
+        <button onclick="closeModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors" title="Tutup">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
       <div class="p-3 sm:p-6 overflow-y-auto flex-1 flex flex-col items-center text-center max-h-[84vh] bg-slate-100/70">
-        <!-- 1. Single Image Container (Default for screenshots, certificates, and studio portraits) -->
-        <div id="modalImageContainer" class="w-full flex items-center justify-center">
-          <img id="modalImg" src="" alt="Document Preview" class="max-h-[74vh] w-auto max-w-full rounded-xl object-contain shadow-xl border border-slate-200 hidden" />
+                <!-- 1. Single Image Container (Default for screenshots, certificates, and studio portraits) -->
+        <div id="modalImageContainer" class="w-full flex flex-col items-center justify-center">
+          <img id="modalImg" src="" alt="Document Preview" class="max-h-[65vh] w-auto max-w-full rounded-xl object-contain shadow-xl border border-slate-200 hidden" />
+          
+          <!-- Full Readable Caption Card Underneath Photo Inside Modal -->
+          <div id="modalCaptionBox" class="mt-3 w-full max-w-2xl px-4 py-2.5 rounded-xl bg-white border border-slate-200 shadow-sm text-center">
+            <p id="modalCaptionText" class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed break-words"></p>
+          </div>
+
           <div id="modalFallback" class="w-full aspect-video rounded-xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center p-6 text-slate-500">
             <i data-lucide="image" class="w-16 h-16 text-slate-300 mb-2"></i>
             <p id="modalDescription" class="text-sm font-semibold text-slate-700">Project Documentation</p>
@@ -1806,6 +1941,49 @@
   <!-- ==================== JAVASCRIPT: DYNAMIC & AESTHETIC ==================== -->
     <!-- Main Unified JavaScript -->
   <script>
+    // 0. Guaranteed Standalone Typewriter Animation (Active immediately on Mobile & Desktop)
+    (function initHeroTypewriter() {
+      const el = document.getElementById('typingRoleText');
+      if (!el) return;
+      const roles = [
+        "Web & Software Engineering",
+        "Full-Stack Web Development",
+        "Database Architecture & MySQL",
+        "Cisco Networking & Security"
+      ];
+      let rIndex = 0;
+      let cIndex = 0;
+      let isDeleting = false;
+      el.textContent = "";
+
+      function typeLoop() {
+        const current = roles[rIndex];
+        if (isDeleting) {
+          cIndex--;
+          el.textContent = current.substring(0, cIndex);
+        } else {
+          cIndex++;
+          el.textContent = current.substring(0, cIndex);
+        }
+
+        let speed = isDeleting ? 30 : 65;
+
+        if (!isDeleting && cIndex === current.length) {
+          speed = 2200; // Hold for 2.2s
+          isDeleting = true;
+        } else if (isDeleting && cIndex === 0) {
+          isDeleting = false;
+          rIndex = (rIndex + 1) % roles.length;
+          speed = 350;
+        }
+
+        setTimeout(typeLoop, speed);
+      }
+
+      // Start immediately with short initial pause
+      setTimeout(typeLoop, 350);
+    })();
+
     // 1. Safe Lucide Icons Initializer
     function safeInitIcons() {
       if (typeof lucide !== 'undefined' && lucide.createIcons) {
@@ -2015,46 +2193,7 @@
       animate();
     }
 
-    // 6. Typewriter Subtitle Animation in Hero (Optimized for Mobile & Desktop)
-    const roles = [
-      "Web & Software Engineering",
-      "Full-Stack Web Development",
-      "Database Architecture & MySQL",
-      "Cisco Networking & Security"
-    ];
-    let roleIndex = 0;
-    let charIndex = roles[0].length;
-    let isDeleting = true; // start by holding then deleting to transition smoothly
-    const typingElement = document.getElementById('typingRoleText');
-
-    function typeEffect() {
-      if (!typingElement) return;
-      const currentRole = roles[roleIndex];
-
-      if (isDeleting) {
-        typingElement.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typingElement.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let speed = isDeleting ? 30 : 60;
-
-      if (!isDeleting && charIndex === currentRole.length) {
-        speed = 1500; // Hold for 1.5s then start deleting
-        isDeleting = true;
-      } else if (isDeleting && charIndex <= 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        charIndex = 0;
-        speed = 350;
-      }
-
-      setTimeout(typeEffect, speed);
-    }
-    // Start typing effect smoothly after splash screen fades
-    setTimeout(typeEffect, 1200);
+    // (Typewriter handled by high-priority initializer at top of script)
 
     // 7. Interactive Credentials Tab Filtering
     function filterCerts(category, btnElement) {
@@ -2082,19 +2221,20 @@
     }
 
     // 8. Modal Preview Handler (SK Document & General Images)
-    function openSKModal() {
+        function openSKModal() {
       const modal = document.getElementById('imageModal');
       const modalTitle = document.getElementById('modalTitle');
       const modalImageContainer = document.getElementById('modalImageContainer');
       const modalDocContainer = document.getElementById('modalDocContainer');
+      const modalCaptionBox = document.getElementById('modalCaptionBox');
       
       if (modal) {
-        if (modalTitle) modalTitle.textContent = "Surat Keputusan Direktur LSP Ditekindo (Penetapan Hasil Uji Kompetensi BNSP)";
+        if (modalTitle) modalTitle.textContent = "Dokumen Resmi SK LSP Ditekindo (BNSP)";
+        if (modalCaptionBox) modalCaptionBox.classList.add('hidden');
         if (modalImageContainer) modalImageContainer.classList.add('hidden');
         if (modalDocContainer) modalDocContainer.classList.remove('hidden');
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        safeInitIcons();
       }
     }
 
@@ -2105,9 +2245,12 @@
       const modalFallback = document.getElementById('modalFallback');
       const modalImageContainer = document.getElementById('modalImageContainer');
       const modalDocContainer = document.getElementById('modalDocContainer');
+      const modalCaptionBox = document.getElementById('modalCaptionBox');
+      const modalCaptionText = document.getElementById('modalCaptionText');
       
       if (modal) {
-        if (modalTitle) modalTitle.textContent = title;
+        if (modalTitle) modalTitle.textContent = "Pratinjau Foto";
+        if (modalCaptionText) modalCaptionText.textContent = title;
         if (modalDocContainer) modalDocContainer.classList.add('hidden');
         if (modalImageContainer) modalImageContainer.classList.remove('hidden');
         
@@ -2121,9 +2264,11 @@
           modalImg.src = imageSrc;
           modalImg.classList.remove('hidden');
           if (modalFallback) modalFallback.classList.add('hidden');
-          modalImg.className = 'max-h-[74vh] w-auto max-w-full rounded-xl object-contain shadow-xl border border-slate-200 block my-2';
+          if (modalCaptionBox) modalCaptionBox.classList.remove('hidden');
+          modalImg.className = 'max-h-[65vh] w-auto max-w-full rounded-xl object-contain shadow-xl border border-slate-200 block my-2';
         } else {
           modalImg.classList.add('hidden');
+          if (modalCaptionBox) modalCaptionBox.classList.add('hidden');
           if (modalFallback) modalFallback.classList.remove('hidden');
         }
         modal.classList.remove('hidden');
@@ -2135,62 +2280,14 @@
       const modal = document.getElementById('imageModal');
       const modalDocContainer = document.getElementById('modalDocContainer');
       const modalImageContainer = document.getElementById('modalImageContainer');
+      const modalCaptionBox = document.getElementById('modalCaptionBox');
       if (modal) {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
       }
       if (modalDocContainer) modalDocContainer.classList.add('hidden');
       if (modalImageContainer) modalImageContainer.classList.remove('hidden');
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    const imageModal = document.getElementById('imageModal');
-    if (imageModal) {
-      imageModal.addEventListener('click', (e) => {
-        if (e.target === imageModal) closeModal();
-      });
-    }
-
-    // 9. Floating Toast Notification Controller
-    let toastTimeout;
-    function showToast(title, message) {
-      const toast = document.getElementById('toastNotification');
-      const toastTitle = document.getElementById('toastTitle');
-      const toastMessage = document.getElementById('toastMessage');
-      if (!toast) return;
-
-      if (toastTitle) toastTitle.textContent = title;
-      if (toastMessage) toastMessage.textContent = message;
-
-      toast.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
-      toast.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-
-      clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => {
-        toast.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-        toast.classList.add('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
-      }, 2800);
-    }
-
-    // 10. Copy Email to Clipboard Function
-    function copyEmail(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      const email = 'ahmadfadhilramadhan23@gmail.com';
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email).then(() => {
-          showToast('Email Berhasil Disalin', email);
-        }).catch(() => {
-          fallbackCopyText(email);
-        });
-      } else {
-        fallbackCopyText(email);
-      }
+      if (modalCaptionBox) modalCaptionBox.classList.add('hidden');
     }
 
     function fallbackCopyText(text) {
@@ -2229,6 +2326,24 @@
         card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
+  
+    // 13. Auto Image Fallback (Root <-> assets/)
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('error', function() {
+        if (!this.dataset.fallbackTried) {
+          this.dataset.fallbackTried = "true";
+          var rawSrc = this.getAttribute('src') || '';
+          var cleanSrc = rawSrc.split('?')[0];
+          var filename = cleanSrc.substring(cleanSrc.lastIndexOf('/') + 1);
+          if (cleanSrc.indexOf('assets/') !== -1) {
+            this.src = filename;
+          } else {
+            this.src = 'assets/' + filename;
+          }
+        }
+      });
+    });
+
   </script>
 
 </body>
